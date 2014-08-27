@@ -1,7 +1,7 @@
 require 'monitor_logger'
 
 class Dyno
-  MAX_ALLOWED_ERROR_COUNT = 3
+  DEFAULT_MAX_ALLOWED_ERROR_COUNT = 3
 
   def initialize(heroku_connection, app_name, dyno_name)
     @heroku_connection = heroku_connection
@@ -31,7 +31,7 @@ class Dyno
   end
 
   def exceeded_error_count?
-    @error_count >= MAX_ALLOWED_ERROR_COUNT
+    @error_count >= (ENV['MAX_CONSECUTIVE_DYNO_ERROR_COUNT']|| DEFAULT_MAX_ALLOWED_ERROR_COUNT)
   end
 
   def restart_dyno
