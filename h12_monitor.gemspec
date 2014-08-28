@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'h12_monitor'
-  s.version     = '0.1.0'
+  s.version     = '0.1.1'
   s.date        = '2014-08-27'
   s.summary     = "Monitors"
   s.description = 'Watch for "stuck" Heroku dynos reporting constant H12s and selectively restart them.'
